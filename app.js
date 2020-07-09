@@ -26,7 +26,7 @@ function newEmployee() {
     inquirer
         .prompt({
             name: 'action',
-            type: 'rawlist',
+            type: 'list',
             message: 'What would you like to do?',
             choices: [
                 'Add Department',
@@ -35,7 +35,8 @@ function newEmployee() {
                 'View Role',
                 'Add Employee',
                 'View Employee',
-                'Update Employee Roles'
+                'Update Employee Roles',
+                'Exit'
             ],
         })
         .then(function (answer) {
