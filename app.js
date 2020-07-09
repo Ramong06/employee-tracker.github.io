@@ -40,6 +40,38 @@ function newEmployee() {
             ],
         })
         .then(function (answer) {
-            //switch
+            switch (answer.action) {
+                case 'Add Department':
+                    addDepartment();
+                    break;
+                
+                case 'View Department':
+                    viewDepartment();
+                    break;
+
+                case 'Add Role':
+                    addRole();
+                    break;
+
+                case 'View Role':
+                    viewRole();
+                    break;
+
+                case 'Add Employee':
+                    addEmployee();
+                    break;
+
+                case 'View Employee':
+                    viewEmployee();
+                    break;
+
+                case 'Update Employee Roles':
+                    updateEmployeeRoles();
+                    break;
+
+                case 'Exit':
+                    exit();
+                    break;
+            }
         });
 };
