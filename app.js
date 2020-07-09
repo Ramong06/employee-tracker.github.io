@@ -29,10 +29,16 @@ function newEmployee() {
             type: 'rawlist',
             message: 'What would you like to do?',
             choices: [
-
+                'Add Department',
+                'View Department',
+                'Add Role',
+                'View Role',
+                'Add Employee',
+                'View Employee',
+                'Update Employee Roles'
             ],
         })
         .then(function (answer) {
             //switch
         });
-}
+};
