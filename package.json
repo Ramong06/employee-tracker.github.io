@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Ramong06/homework12.employee-tracker.github.io#readme",
   "dependencies": {
+    "config": "^3.3.1",
     "inquirer": "^7.3.0",
     "mysql2": "^2.1.0"
   }
