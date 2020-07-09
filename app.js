@@ -21,3 +21,18 @@ connection.connect(function (err) {
     if (err) throw err;
     console.log('PORT CONNECTED BRO');
 });
+
+function newEmployee() {
+    inquirer
+        .prompt({
+            name: 'action',
+            type: 'rawlist',
+            message: 'What would you like to do?',
+            choices: [
+
+            ],
+        })
+        .then(function (answer) {
+            //switch
+        });
+}
