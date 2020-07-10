@@ -19,10 +19,10 @@ var connection = mysql.createConnection({
 
 connection.connect(function (err) {
     if (err) throw err;
-    console.log('PORT CONNECTED BRO');
+    console.log('PORT IS CONNECTED');
 });
 
-function newEmployee() {
+function init() {
     inquirer
         .prompt({
             name: 'action',
@@ -70,8 +70,9 @@ function newEmployee() {
                     break;
 
                 case 'Exit':
-                    exit();
+                    connection.end();
                     break;
             }
-        });
+        })
 };
+
