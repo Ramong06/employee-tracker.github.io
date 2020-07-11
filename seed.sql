@@ -2,12 +2,12 @@ USE employee_trackerDB;
 
 INSERT INTO department
 VALUES
-('Management'),
-('Human Resources'),
-('Accounting'),
-('IT'),
-('Sales'),
-('Customer Service');
+(1, 'Management'),
+(2, 'Human Resources'),
+(3, 'Accounting'),
+(4, 'IT'),
+(5, 'Sales'),
+(6, 'Customer Service');
 
 INSERT INTO role
 (title, salary, department_id)
@@ -27,4 +27,5 @@ VALUES
 INSERT INTO employee
 (first_name, last_name, role_id, manager_id)
 VALUES
-('Sheev')
+('Sheev', 'Palpatine', 1, ),
+('Darth', 'Vader', 1, ),
