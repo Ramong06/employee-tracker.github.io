@@ -132,5 +132,44 @@ function addRole() {
                     return true;
                 },
             },
-    })
-}
+            {
+                name: "role",
+                type: "list",
+                message: "What will be the employee's role?",
+                choices: function () {
+                  var roles = [];
+                  for (var i = 0; i < res.length; i++) {
+                    roles.push(res[i].title);
+                  }
+                  return roles;
+                },
+            },
+            {
+                name: "manager",
+                type: "input",
+                message: "Who will be the employee's manager?",
+            },
+        ])
+        .then(function (answer) {
+            for (var i = 0; i < res.length; i++) {
+              if (res[i].title === answer.role) {
+                answer.role_id = res[i].id;
+              }
+            }
+            var query = "INSERT INTO employee SET ?";
+            var values = {
+              first_name: answer.first_name,
+              last_name: answer.last_name,
+              role_id: answer.role_id,
+            };
+    
+            connection.query(query, values, function (err) {
+              if (err) throw err;
+              console.log("Employee has been added.");
+            });
+            viewRole();
+          });
+      });
+    };
+
+function viewRole()
