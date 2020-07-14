@@ -11,10 +11,11 @@ var connection = mysql.createConnection({
 
 connection.connect(function (err) {
     if (err) throw err;
-    console.log('PORT IS CONNECTED');
+    //console.log('PORT IS CONNECTED');
+    employeeTracker();
 });
 
-function init() {
+function employeeTracker() {
     inquirer
         .prompt({
             name: 'action',
@@ -83,22 +84,10 @@ function addDepartment() {
             }
         ])
         .then(function (answer) {
-            var query = 'SELECT position, song, year FROM top5000 WHERE ?';
-            connection.query(query, { artist: answer.artist }, function (
-                err,
-                res
-            ) {
-                for (var i = 0; i < res.length; i++) {
-                    console.log(
-                        'Position: ' +
-                            res[i].position +
-                            ' || Song: ' +
-                            res[i].song +
-                            ' || Year: ' +
-                            res[i].year
-                    );
-                }
-                runSearch();
-            });
-        });
-}
+            connection.query("Add Department? ", { name: answer.name }, function (err, res) {
+            console.log("Your New Department Name is: " + answer.name);
+            console.log("Your Department Id is: " + answer.id);
+            employeeTracker();
+        })
+    })
+}; 
