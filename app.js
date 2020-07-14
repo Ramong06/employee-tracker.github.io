@@ -69,28 +69,36 @@ function init() {
 };
 
 function addDepartment() {
-    connection.query("SELECT * FROM department", function (
-      err,
-      data
-    ) {
-      if (err) throw err;
-  
-      inquirer
+    inquirer
         .prompt([
-          {
-            name: "department",
-            type: "input",
-            message: "What is the name of the Department?",
-          },
-          {
-            name: "departmentFunction",
-            type: "input",
-            message: "What is the purpose of this",
-            choices: function () {
-              var departmentArray = [];
-              for (var i = 0; i < data.length; i++) {
-                departmentArray.push(data[i].title);
-              }
-              return roleArray;
+            {
+                name: "name",
+                type: "input",
+                message: "What is the name of the new department?",
             },
-          },
+            {
+                name: "id",
+                type: "input",
+                message: "What is the department's id?",
+            }
+        ])
+        .then(function (answer) {
+            var query = 'SELECT position, song, year FROM top5000 WHERE ?';
+            connection.query(query, { artist: answer.artist }, function (
+                err,
+                res
+            ) {
+                for (var i = 0; i < res.length; i++) {
+                    console.log(
+                        'Position: ' +
+                            res[i].position +
+                            ' || Song: ' +
+                            res[i].song +
+                            ' || Year: ' +
+                            res[i].year
+                    );
+                }
+                runSearch();
+            });
+        });
+}
