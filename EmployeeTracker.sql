@@ -1,13 +1,14 @@
-CREATE database employee_trackerDB;
+CREATE DATABASE IF NOT EXISTS employee_trackerDB;
 
 USE employee_trackerDB;
 
 CREATE TABLE department (
-  id INT PRIMARY KEY,
-  name VARCHAR(30) NOT NULL
+  id INT AUTO_INCREMENT,
+  department_name VARCHAR(30) NOT NULL,
+  PRIMARY KEY (id)
 );
 
-CREATE TABLE role (
+CREATE TABLE employee_role (
 id INT PRIMARY KEY NOT NULL,
 title VARCHAR(30) NOT NULL,
 salary DECIMAL(10, 4),
