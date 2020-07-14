@@ -172,4 +172,11 @@ function addRole() {
       });
     };
 
-function viewRole()
+function viewRole() {
+    var query = "SELECT * FROM employee_role";
+    connection.query(query, function(err, res) {
+        console.log("Employee Duties: ");
+        console.table(res);
+        employeeTracker();
+    })
+};
