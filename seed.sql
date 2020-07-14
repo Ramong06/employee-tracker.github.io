@@ -38,3 +38,7 @@ VALUES
 ("Boba", "Fett", 5),
 ("Aurra", "Sing", 5),
 ("Asajj", "Ventress", 5);
+
+SELECT * FROM department;
+SELECT * FROM employee_role;
+SELECT * FROM employee;

@@ -39,7 +39,7 @@ function employeeTracker() {
                     break;
                 
                 case 'View Department':
-                    viewDepartment();
+                    viewDepartments();
                     break;
 
                 case 'Add Role':
@@ -84,10 +84,53 @@ function addDepartment() {
             }
         ])
         .then(function (answer) {
-            connection.query("Add Department? ", { name: answer.name }, function (err, res) {
+            var query = "INSERT INTO department (department_name) VALUES ?";
+            connection.query(query, answer.department, function (err, res) {
+                if (err) throw err;
             console.log("Your New Department Name is: " + answer.name);
             console.log("Your Department Id is: " + answer.id);
             employeeTracker();
         })
     })
 }; 
+
+function viewDepartments() {
+    var query = "SELECT * FROM department";
+    connection.query(query, function(err, res) {
+        console.log("Departments List: ");
+        console.table(res);
+        employeeTracker();
+    })
+
+};
+
+function addRole() {
+    var query = "SELECT * FROM employee";
+    connection.query(query, function(err, res){
+        
+        inquirer
+        .prompt([
+            {
+                name: "first_name",
+                type: "input",
+                message: "What is the employee's First Name?",
+                validate: function (value) {
+                    if (value === "") {
+                        return "You Must Enter A Value"
+                    }
+                    return true;
+                },
+            },
+            {
+                name: "last_name",
+                type: "input",
+                message: "What is the employee's Last Name?",
+                validate: function (input) {
+                    if (input === "") {
+                        return "You Must Enter A Value";
+                    }
+                    return true;
+                },
+            },
+    })
+}
