@@ -85,7 +85,6 @@ function addDepartment() {
         .then(function (answer) {
             var query = "INSERT INTO department (department_name) VALUES ?";
             connection.query(query, answer.department, function (err, res) {
-                if (err) throw err;
             console.log("Your New Department Name is: " + answer.name);
             console.log("Your Department Id is: " + answer.id);
             employeeTracker();
