@@ -207,6 +207,7 @@ function updateEmployeeRoles() {
                 "Boba Fett", 
                 "Aurra Sing", 
                 "Asajj Ventress",
+                "Exit"
             ],
         })
         .then(function (answer) {
@@ -247,10 +248,173 @@ function updateEmployeeRoles() {
                     asajjVentress();
                     break;
 
-                case 'Exit':
+                    case 'Exit':
                     connection.end();
                     break;
             }
         })
 };
+
+function sheevPalpatineRole() {
+    inquirer
+        .prompt([
+            {
+                name: "name",
+                type: "input",
+                message: "What is the new role of this employee?",
+            }
+        ])
+        .then(function (answer) {
+            var query = "INSERT INTO employee_role (title) VALUES ?";
+            connection.query(query, answer.employee_role, function (err, res) {
+            console.log("This Employee's new role is : " + answer.name);
+            updateEmployeeRoles();
+        })
+    })
+}; 
+
+function darthVaderRole() {
+    inquirer
+        .prompt([
+            {
+                name: "name",
+                type: "input",
+                message: "What is the new role of this employee?",
+            }
+        ])
+        .then(function (answer) {
+            var query = "INSERT INTO employee_role (title) VALUES ?";
+            connection.query(query, answer.employee_role, function (err, res) {
+            console.log("This Employee's new role is : " + answer.name);
+            updateEmployeeRoles();
+        })
+    })
+};
+
+function moffJerjerrodRole() {
+    inquirer
+        .prompt([
+            {
+                name: "name",
+                type: "input",
+                message: "What is the new role of this employee?",
+            }
+        ])
+        .then(function (answer) {
+            var query = "INSERT INTO employee_role (title) VALUES ?";
+            connection.query(query, answer.employee_role, function (err, res) {
+            console.log("This Employee's new role is : " + answer.name);
+            updateEmployeeRoles();
+        })
+    })
+}; 
+
+function babuFrikRole() {
+    inquirer
+        .prompt([
+            {
+                name: "name",
+                type: "input",
+                message: "What is the new role of this employee?",
+            }
+        ])
+        .then(function (answer) {
+            var query = "INSERT INTO employee_role (title) VALUES ?";
+            connection.query(query, answer.employee_role, function (err, res) {
+            console.log("This Employee's new role is : " + answer.name);
+            updateEmployeeRoles();
+        })
+    })
+}; 
+
+function jabaTheHutRole() {
+    inquirer
+        .prompt([
+            {
+                name: "name",
+                type: "input",
+                message: "What is the new role of this employee?",
+            }
+        ])
+        .then(function (answer) {
+            var query = "INSERT INTO employee_role (title) VALUES ?";
+            connection.query(query, answer.employee_role, function (err, res) {
+            console.log("This Employee's new role is : " + answer.name);
+            updateEmployeeRoles();
+        })
+    })
+}; 
+
+function c3poRole() {
+    inquirer
+        .prompt([
+            {
+                name: "name",
+                type: "input",
+                message: "What is the new role of this employee?",
+            }
+        ])
+        .then(function (answer) {
+            var query = "INSERT INTO employee_role (title) VALUES ?";
+            connection.query(query, answer.employee_role, function (err, res) {
+            console.log("This Employee's new role is : " + answer.name);
+            updateEmployeeRoles();
+        })
+    })
+}; 
+
+function bobaFettRole() {
+    inquirer
+        .prompt([
+            {
+                name: "name",
+                type: "input",
+                message: "What is the new role of this employee?",
+            }
+        ])
+        .then(function (answer) {
+            var query = "INSERT INTO employee_role (title) VALUES ?";
+            connection.query(query, answer.employee_role, function (err, res) {
+            console.log("This Employee's new role is : " + answer.name);
+            updateEmployeeRoles();
+        })
+    })
+}; 
+
+function aurraSingRole() {
+    inquirer
+        .prompt([
+            {
+                name: "name",
+                type: "input",
+                message: "What is the new role of this employee?",
+            }
+        ])
+        .then(function (answer) {
+            var query = "INSERT INTO employee_role (title) VALUES ?";
+            connection.query(query, answer.employee_role, function (err, res) {
+            console.log("This Employee's new role is : " + answer.name);
+            updateEmployeeRoles();
+        })
+    })
+}; 
+
+function asajjVentress() {
+    inquirer
+        .prompt([
+            {
+                name: "name",
+                type: "input",
+                message: "What is the new role of this employee?",
+            }
+        ])
+        .then(function (answer) {
+            var query = "INSERT INTO employee_role (title) VALUES ?";
+            connection.query(query, answer.employee_role, function (err, res) {
+            console.log("This Employee's new role is : " + answer.name);
+            updateEmployeeRoles();
+        })
+    })
+}; 
+
 
