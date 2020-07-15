@@ -4,7 +4,7 @@
 This homework was assigned to me by the University of Texas at University of Houston.  It's purpose is to create an Employee Tracker.  In this application the user should be able to easily view and interact with employee information that is stored Databases. 
 
 # Instructional Video
-
+https://drive.google.com/file/d/1JTJ2urYIl2heguT-orrPi0rQbIs9LD9v/view
 
 # Built With
 Javascript
