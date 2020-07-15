@@ -11,7 +11,6 @@ var connection = mysql.createConnection({
 
 connection.connect(function (err) {
     if (err) throw err;
-    //console.log('PORT IS CONNECTED');
     employeeTracker();
 });
 
@@ -189,5 +188,69 @@ function viewRole() {
         console.table(res);
         employeeTracker();
     })
+};
+
+function updateEmployeeRoles() {
+    inquirer
+        .prompt({
+            name: 'action',
+            type: 'list',
+            message: 'Which employee would you like to update?',
+            choices: [
+                "Sheev Palpatine",
+                "Darth Vader", 
+                "Moff Jerjerrod", 
+                "Babu Frik", 
+                "Jaba The Hut",
+                "C3PO", 
+                "R2 D2", 
+                "Boba Fett", 
+                "Aurra Sing", 
+                "Asajj Ventress",
+            ],
+        })
+        .then(function (answer) {
+            switch (answer.action) {
+                case 'Sheev Palpatine':
+                    sheevPalpatineRole();
+                    break;
+                
+                case 'Darth Vader':
+                    darthVaderRole();
+                    break;
+
+                case 'Moff Jerjerrod':
+                    moffJerjerrodRole();
+                    break;
+
+                case 'Babu Frik':
+                    babuFrikRole();
+                    break;
+
+                case 'Jaba The Hut':
+                    jabaTheHutRole();
+                    break;
+
+                case 'C3PO':
+                    c3poRole();
+                    break;
+
+                case 'Boba Fett':
+                    bobaFettRole();
+                    break;
+
+                    case 'Aurra Sing':
+                    aurraSingRole();
+                    break;
+
+                    case 'Asajj Ventress':
+                    asajjVentress();
+                    break;
+
+                case 'Exit':
+                    connection.end();
+                    break;
+            }
+        })
 };
 
