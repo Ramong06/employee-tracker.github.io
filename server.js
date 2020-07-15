@@ -104,7 +104,7 @@ function viewDepartments() {
 
 };
 
-function addRole() {
+function addEmployee() {
     var query = "SELECT * FROM employee";
     connection.query(query, function(err, res){
         
@@ -172,6 +172,16 @@ function addRole() {
       });
     };
 
+    function viewEmployee() {
+        var query = "SELECT * FROM employee";
+        connection.query(query, function(err, res) {
+            console.log("Employees: ");
+            console.table(res);
+            employeeTracker();
+        })
+    };
+    
+
 function viewRole() {
     var query = "SELECT * FROM employee_role";
     connection.query(query, function(err, res) {
@@ -180,3 +190,4 @@ function viewRole() {
         employeeTracker();
     })
 };
+
